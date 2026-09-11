@@ -1,0 +1,97 @@
+==> Run node        --version , npm --version , git --version
+==>Create react frontend        npm create vite@latest client -- --template react
+                                Linter: ESLint ✅ ESLint is the standard, beginner-friendly choice for a React project.
+==> create the backend(server)  mkdir server , cd server , npm init -y
+                                Install these: 
+                                npm install express(Backend server/API)                 mongoose(MongoDB connection)
+                                             cors(Allow React → Express communication)  dotenv          bcryptjs 
+                                             jsonwebtoken(login auth...)                 axios(call TMDB)
+                                npm install -D nodemon(Automatically restart server)
+
+==>                             change these in package.json/scrips to (("start": "node server.js","dev": "nodemon server.js"))
+==>                         create the required folders    
+==> updated env and gitignore
+==> files ready to update   
+        (1)    config/db.js   
+            server.js      the order flow(dotenv -> MongoDB -> Express -> Middleware -> Routes -> Server)  
+        (3)    models/user.js           
+                workflow to be happened
+                    POST /api/auth/register
+                            ↓
+                        authRoutes.js
+                            ↓
+                    authController.js
+                            ↓
+                    Check required fields
+                            ↓
+                    Check existing email
+                            ↓
+                        Hash password
+                            ↓
+                        Save User
+                            ↓
+                        MongoDB Atlas
+              controllers/authController.js
+              routes/authRoutes.js                        (testing in postman) post-reg & login
+              jwt token should be created.
+              middleware/authMiddleware.js (update that line in authRoutes too.)        (auth)
+
+
+
+
+
+
+
+
+
+
+
+
+==> create the frontend(client)     :  install axios(Communicate with our Express API)      react-router-dom(Move between pages without refreshing)
+                                        create the folders in src    (mkdir components services pages)
+==> files ready to update                                         
+         (2)   services/api.js (axios configuration)       ===>>     React
+                                                                    │ api.get("/movies")
+                                                                    ↓
+                                                                  Axios
+                                                                    │ http://localhost:5000/api/movies
+                                                                    ↓
+                                                                  Express
+                                                                    ↓
+                                                                  MongoDB / TMDB
+
+        
+
+
+
+
+
+
+
+
+MONGODB   login -->  create db cluster --> create db user (sec-db access) (sec - n/w access) --> go to cluster - connect - drivers (this step can be done bef db acces and if done before we can change the username as per our choice but no password)
+POSTMAN   workspace --> cretae workspace --> my collections -->cinematch
+===>> checking in mongodb if user is created go to db-cluster-browse collections
+JWT SECRET 
+        JWT_SECRET
+            ↓
+        JWT signing                     generating jwt secret code
+            ↓                           node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+        Token
+            ↓
+        Client stores/sends token
+            ↓
+        Server receives token
+            ↓
+        JWT_SECRET
+            ↓
+        JWT verification
+
+
+
+
+IMPORTANT POINTS LIKE OF DEFINITIONS TO REMEMBER
+
+package.json = list of packages your project needs
+node_modules = the actual installed packages
+to run : npm run dev
