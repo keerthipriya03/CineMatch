@@ -7,7 +7,8 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const preferenceRoutes = require("./routes/preferenceRoutes");
-
+const movieRoutes = require("./routes/movieRoutes");
+const recommendationRoutes = require("./routes/recommendationRoutes");
 
 
 
@@ -23,7 +24,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api", preferenceRoutes);
-
+app.use("/api/movies", movieRoutes);
+app.use("/api", recommendationRoutes);
 
 
 app.get("/", (req, res) => {

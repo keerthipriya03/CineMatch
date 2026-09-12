@@ -49,7 +49,24 @@ const updatePreferences = async (req, res) => {
       });
     }
 
-    // 4. Validate languages
+
+    // 4. Check that at least one language is selected
+    if (languages.length === 0) {
+      return res.status(400).json({
+        message: "Please select at least one language"
+      });
+    }
+
+    // 5. Check that at least one genre is selected
+    if (genres.length === 0) {
+      return res.status(400).json({
+        message: "Please select at least one genre"
+      });
+    }
+
+
+
+    // 6. Validate languages
     const invalidLanguages = languages.filter(
       (language) => !SUPPORTED_LANGUAGES.includes(language)
     );
@@ -61,7 +78,7 @@ const updatePreferences = async (req, res) => {
       });
     }
 
-    // 5. Validate genres
+    // 7. Validate genres
     const invalidGenres = genres.filter(
       (genre) => !SUPPORTED_GENRES.includes(genre)
     );
@@ -73,7 +90,7 @@ const updatePreferences = async (req, res) => {
       });
     }
 
-    // 6. Validate rating
+    // 8. Validate rating
     if (
       typeof minRating !== "number" ||
       minRating < 0 ||
@@ -84,7 +101,7 @@ const updatePreferences = async (req, res) => {
       });
     }
 
-    // 7. Validate duration
+    // 9. Validate duration
     if (
       typeof maxDuration !== "number" ||
       maxDuration <= 0
@@ -94,7 +111,7 @@ const updatePreferences = async (req, res) => {
       });
     }
 
-    // 8. Save preferences
+    // 10. Save preferences
     member.preferences = {
       languages,
       genres,
@@ -102,10 +119,10 @@ const updatePreferences = async (req, res) => {
       maxDuration
     };
 
-    // 9. Mark submitted
+    // 11. Mark submitted
     member.submitted = true;
 
-    // 10. Save group
+    // 12. Save group
     await group.save();
 
     res.json({

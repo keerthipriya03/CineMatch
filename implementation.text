@@ -48,6 +48,14 @@
             routes/groupRoutes.js           (protect - So an unauthenticated user cannot create or join movie nights.)
             modify server.js                (Connect the routes to Express)
             postman - req4 and req5
+        (5) check the model/group.js 
+            constants/preferences.js
+            preferenceController.js         (the job done is Get group  -->  Check user is a member  -->  Validate preferences  -->  Update that member  -->  submitted = true  -->  Save group  -->  Return result)
+                    we are finding members bcoz when rahul send any preference(PUT /api/groups/123/preferences) 
+            preferenceRoutes.js 
+            server.js                       (postman - req7 and we check between multiple users we do req5,6,7)
+        (6) TMDB WORKFLOW
+
 
 
 
@@ -101,8 +109,25 @@ JWT SECRET
         JWT_SECRET
             ↓
         JWT verification
-
-
+TMDB    as this is not opening we use wih dataset
+        services/movieService
+        movieController
+        movieRoutes
+        server.js
+Matching Algm       
+Group                                        files created
+  ↓                                          services/matchingService.js
+Get members + preferences                    controllers/recommendationController.js
+  ↓                                          routes/recommendationRoutes.js
+Get Indian movies                            server
+  ↓
+Score every movie for every member
+  ↓
+Calculate group average
+  ↓
+Sort by score
+  ↓
+Return Top 3
 
 
 
