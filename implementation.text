@@ -1,6 +1,8 @@
 ==> Run node        --version , npm --version , git --version
+
 ==>Create react frontend        npm create vite@latest client -- --template react
                                 Linter: ESLint ✅ ESLint is the standard, beginner-friendly choice for a React project.
+
 ==> create the backend(server)  mkdir server , cd server , npm init -y
                                 Install these: 
                                 npm install express(Backend server/API)                 mongoose(MongoDB connection)
@@ -19,23 +21,33 @@
                     POST /api/auth/register
                             ↓
                         authRoutes.js
-                            ↓
-                    authController.js
-                            ↓
-                    Check required fields
-                            ↓
-                    Check existing email
-                            ↓
-                        Hash password
-                            ↓
-                        Save User
-                            ↓
+                            ↓                                | why jwt done before creating groups                            
+                    authController.js                        |
+                            ↓                                |         JWT 
+                    Check required fields                    |           ↓
+                            ↓                                |       authMiddleware    
+                    Check existing email                     |           ↓
+                            ↓                                |       decode token
+                        Hash password                        |           ↓
+                            ↓                                |        req.userId
+                        Save User                            |           ↓
+                            ↓                                |       groupController
                         MongoDB Atlas
               controllers/authController.js
               routes/authRoutes.js                        (testing in postman) post-reg & login
               jwt token should be created.
               middleware/authMiddleware.js (update that line in authRoutes too.)        (auth)
 
+        (4) in creating groups the flow will be The flow will be:
+                Logged-in User --- POST /api/groups --- Create unique code --- MongoDB --- Group created --- Creator added as member
+                Then:
+                Friend enters CM8F42 --- POST /api/groups/join --- Find group --- Add friend to members --- MongoDB
+            models/group.js                 (Make sure Group model is ready)
+            services/groupCodeService.js    (Create a group code generator)
+            controllers/groupController.js
+            routes/groupRoutes.js           (protect - So an unauthenticated user cannot create or join movie nights.)
+            modify server.js                (Connect the routes to Express)
+            postman - req4 and req5
 
 
 
@@ -69,6 +81,9 @@
 
 
 
+
+
+
 MONGODB   login -->  create db cluster --> create db user (sec-db access) (sec - n/w access) --> go to cluster - connect - drivers (this step can be done bef db acces and if done before we can change the username as per our choice but no password)
 POSTMAN   workspace --> cretae workspace --> my collections -->cinematch
 ===>> checking in mongodb if user is created go to db-cluster-browse collections
@@ -90,8 +105,26 @@ JWT SECRET
 
 
 
+
+
+
+
+
+
+
+
+
 IMPORTANT POINTS LIKE OF DEFINITIONS TO REMEMBER
 
 package.json = list of packages your project needs
 node_modules = the actual installed packages
 to run : npm run dev
+
+
+
+
+Step 13: CreateGroup React page → Hour 3
+Step 14: JoinGroup React page → Hour 3
+Step 15: GroupDetails React page → Hour 3
+Step 16: Add React routes → Hour 3
+Step 17: Test complete create/join/group flow → Hour 3

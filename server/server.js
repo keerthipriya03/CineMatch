@@ -5,6 +5,10 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 // const User = require("./models/User");
 const authRoutes = require("./routes/authRoutes");
+const groupRoutes = require("./routes/groupRoutes");
+const preferenceRoutes = require("./routes/preferenceRoutes");
+
+
 
 
 dotenv.config();
@@ -17,12 +21,17 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/groups", groupRoutes);
+app.use("/api", preferenceRoutes);
+
+
 
 app.get("/", (req, res) => {
   res.json({
     message: "CineMatch API is running"
   });
 });
+
 
 const PORT = process.env.PORT || 5000;
 
