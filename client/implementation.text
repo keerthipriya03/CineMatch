@@ -68,10 +68,12 @@
 
 
 ==> create the frontend(client)     :  install axios(Communicate with our Express API)      react-router-dom(Move between pages without refreshing)
+                                        (Connect React → Express backend)                       (Navigate between pages)
                                         create the folders in src    (mkdir components services pages)
 ==> files ready to update                                         
          (2)   services/api.js (axios configuration)       ===>>     React
-                                                                    │ api.get("/movies")
+         (7)   App.jsx   
+               creating pages/login ,                                                        │ api.get("/movies")
                                                                     ↓
                                                                   Axios
                                                                     │ http://localhost:5000/api/movies
@@ -109,9 +111,9 @@ JWT SECRET
         JWT_SECRET
             ↓
         JWT verification
-TMDB    as this is not opening we use wih dataset
+TMDB    as this is not opening we use wih dataset               (API present in movieService.js)
         services/movieService
-        movieController
+        movieController                     (http://localhost:5000/api/movies/indian)
         movieRoutes
         server.js
 Matching Algm       
@@ -147,9 +149,5 @@ to run : npm run dev
 
 
 
-
-Step 13: CreateGroup React page → Hour 3
-Step 14: JoinGroup React page → Hour 3
-Step 15: GroupDetails React page → Hour 3
-Step 16: Add React routes → Hour 3
-Step 17: Test complete create/join/group flow → Hour 3
+6aac0379dd17dd492a185a43
+BKEEKI

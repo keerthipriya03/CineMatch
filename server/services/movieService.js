@@ -2,7 +2,7 @@ const indianMovies = [
   {
     id: 1,
     title: "RRR",
-    language: "te",
+    language: "Telugu",
     rating: 8.0,
     duration: 187,
     genres: ["Action", "Drama"],
@@ -12,7 +12,7 @@ const indianMovies = [
   {
     id: 2,
     title: "Jai Bhim",
-    language: "ta",
+    language: "Tamil",
     rating: 8.7,
     duration: 164,
     genres: ["Drama", "Crime"],
@@ -22,7 +22,7 @@ const indianMovies = [
   {
     id: 3,
     title: "Drishyam 2",
-    language: "hi",
+    language: "Hindi",
     rating: 8.2,
     duration: 140,
     genres: ["Crime", "Thriller", "Drama"],
@@ -32,7 +32,7 @@ const indianMovies = [
   {
     id: 4,
     title: "Kantara",
-    language: "kn",
+    language: "Kannada",
     rating: 8.2,
     duration: 148,
     genres: ["Action", "Drama", "Thriller"],
@@ -42,7 +42,7 @@ const indianMovies = [
   {
     id: 5,
     title: "Premalu",
-    language: "ml",
+    language: "Malayalam",
     rating: 7.8,
     duration: 156,
     genres: ["Romance", "Comedy", "Drama"],
@@ -52,7 +52,7 @@ const indianMovies = [
   {
     id: 6,
     title: "12th Fail",
-    language: "hi",
+    language: "Hindi",
     rating: 8.8,
     duration: 147,
     genres: ["Drama"],
@@ -62,7 +62,7 @@ const indianMovies = [
   {
     id: 7,
     title: "Sita Ramam",
-    language: "te",
+    language: "Telugu",
     rating: 8.5,
     duration: 163,
     genres: ["Romance", "Drama"],
@@ -72,8 +72,8 @@ const indianMovies = [
   {
     id: 8,
     title: "Vikram",
-    language: "ta",
-    rating: 8.3,
+    language: "Tamil",
+    rating: 5.3,
     duration: 174,
     genres: ["Action", "Thriller", "Crime"],
     overview:
@@ -82,7 +82,7 @@ const indianMovies = [
   {
     id: 9,
     title: "Kumbalangi Nights",
-    language: "ml",
+    language: "Malayalam",
     rating: 8.5,
     duration: 135,
     genres: ["Drama", "Romance"],
@@ -92,7 +92,7 @@ const indianMovies = [
   {
     id: 10,
     title: "Andhadhun",
-    language: "hi",
+    language: "Hindi",
     rating: 8.2,
     duration: 139,
     genres: ["Thriller", "Crime", "Comedy"],
@@ -106,5 +106,5 @@ const getIndianMovies = () => {
 };
 
 module.exports = {
-  getIndianMovies
+  getIndianMovies,
 };
