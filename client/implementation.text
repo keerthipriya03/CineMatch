@@ -151,3 +151,55 @@ to run : npm run dev
 
 6aac0379dd17dd492a185a43
 BKEEKI
+
+
+CineMatch — Deployment Steps
+Step 1 — Verify Git repository                          git init
+Step 2 — Push the latest project changes to GitHub      3 commands
+Step 3 — Verify backend configuration                   verifying how port number accessed,mongo_uri, package,json scripts
+Step 4 — Deploy the backend to Render                   Root Directory: server
+                                                        Name: cinematch-backend
+                                                        Runtime: Node
+                                                        Build Command: npm install
+                                                        Start Command: npm start
+Step 5 — Configure backend environment variables        (mongo_uri , jwt)
+Step 6 — Deploy backend                             npm start - and the link verified in browser shows a message.
+
+Step 7 — Prepare frontend for deployment            http://localhost:5000/api  ==> replaced with  baseURL: import.meta.env.VITE_API_URL,(api.js)
+Step 8 — Configure frontend environment variable and protect .env
+Step 10 — Push frontend changes to GitHub
+Step 11 — Deploy the frontend to Render                 Root Directory: client
+                                                        Name: cinematch-frontend
+                                                        Branch: main
+                                                        Root Directory: client
+                                                        Build Command: npm run build
+                                                        Publish Directory: dist
+and configure frontend variables, deploy the frontend.
+
+                         GitHub                                                                     
+                           │
+              ┌────────────┴────────────┐
+              │                         │
+              ↓                         ↓
+      Render Web Service          Render Static Site
+          Backend                    Frontend
+              │                         │
+              │       API Requests      │
+              │ ←───────────────────────│
+              ↓
+        Express / Node.js
+              │
+              ↓
+        MongoDB Atlas
+
+| Component                 | Technology                            |
+| ------------------------- | ------------------------------------- |
+| Source Control            | Git + GitHub                          |
+| Frontend                  | React + Vite                          |
+| Frontend Hosting          | Render Static Site                    |
+| Backend                   | Node.js + Express                     |
+| Backend Hosting           | Render Web Service                    |
+| Database                  | MongoDB Atlas                         |
+| Authentication            | JWT                                   |
+| API Communication         | Axios                                 |
+| Environment Configuration | `.env` / Render Environment Variables |
